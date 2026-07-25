@@ -188,27 +188,7 @@ Stores run-level summary information, including:
 - final occupancy
 - a snapshot of runtime configuration
 
----
 
-## Performance Benchmark
-
-Example benchmark results from a sample run:
-
-| Metric | Value |
-| :--- | :--- |
-| Total processed frames | 2,086 |
-| Average throughput | 21.819 FPS |
-| Mean latency | 30.463 ms/frame |
-| P95 latency | 31.839 ms/frame |
-| Max latency | 4,312.853 ms |
-| Total emitted events | 60 |
-| Final occupancy | 0 |
-
-### Interpretation
-- The pipeline processes close to the input video rate of **25 FPS**, achieving about **21.8 FPS** on the tested hardware.
-- Mean latency and P95 latency are very close (~30–32 ms), indicating stable processing time for most frames.
-- The maximum latency spike is significantly larger and is typically caused by initialization overhead, model warm-up, or temporary system resource contention.
-- Event generation remained stable during the run, producing **60 confirmed ENTER/EXIT events**, with a final monitored occupancy of **0**.
 
 ---
 
@@ -222,7 +202,3 @@ python pick_homography_points.py --video input.mp4 --frame 300 --out homography_
 
 ---
 
-## Summary
-
-
-This implementation is an initial demo of the overall system, intended to demonstrate the core online pipeline, virtual fence occupancy logic, and entry/exit event generation. However, it requires further improvements.
