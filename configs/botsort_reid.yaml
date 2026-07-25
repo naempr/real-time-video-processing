@@ -1,0 +1,16 @@
+tracker_type: botsort
+track_high_thresh: 0.7
+track_low_thresh: 0.35
+new_track_thresh: 0.8
+track_buffer: 80
+match_thresh: 0.90
+fuse_score: true
+
+# Global motion compensation
+gmc_method: sparseOptFlow
+
+# ReID
+with_reid: true
+proximity_thresh: 0.8
+appearance_thresh: 0.8
+

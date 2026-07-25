@@ -1,0 +1,68 @@
+input_video: "input.mp4"
+output_video: "outputs/annotated.mp4"
+events_csv: "outputs/events.csv"
+occupancy_csv: "outputs/occupancy.csv"
+summary_json: "outputs/summary.json"
+
+# YOLO
+model_path: "yolo11n.pt" 
+imgsz: 960
+conf: 0.30
+iou: 0.50
+classes: [0]  # person only
+
+# Tracker
+tracker_yaml: "configs/botsort_reid.yaml"
+
+# ROI polygon points (x,y) - clockwise
+
+
+#scale  0.75
+polygon:
+  - [298, 271]
+  - [1463, 309]
+  - [1517, 946]
+  - [306, 965]
+
+
+
+inside_streak_required: 4
+outside_streak_required: 4
+min_confirm_frames: 6
+
+
+
+# track stale handling
+max_missed_frames_for_inside: 20
+
+# drawing
+line_thickness: 2
+font_scale: 0.8
+
+# ---------------------------
+# Ground-plane (for next main version with homography)
+# ---------------------------
+use_ground_plane: false
+homography:
+  image_points:
+    - [143, 919]
+    - [1336, 932]
+    - [1338, 440]
+    - [170, 436]
+  ground_points:
+    - [0.0, 8.0]
+    - [12.0, 8.0]
+    - [12.0, 0.0]
+    - [0.0, 0.0]
+
+# Define this if you want the ROI logic to operate on the ground plane
+
+ground_polygon:
+  - [0.0, 8.0]
+  - [12.0, 8.0]
+  - [12.0, 0.0]
+  - [0.0, 0.0]
+
+
+# FPS configuration
+fallback_fps: 25.0
